@@ -1,6 +1,5 @@
 <template>
-  <div class="relative
-          w-3/4 mx-auto max-w-5xl min-w-[700px]">
+  <div class="relative mx-auto w-[1000px]">
     <slot />
   </div>
 </template>
