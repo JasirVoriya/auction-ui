@@ -12,7 +12,7 @@
               text-black text-sm
               caret-rose-600"
           placeholder="搜索" />
-        <button class=" bg-rose-600 w-14 h-6 rounded-2xl text-white text-sm">搜索</button>
+        <button class=" bg-rose-600 w-14 h-6 rounded-2xl text-white text-sm scale-[1.02]">搜索</button>
       </div>
     </container-box>
   </div>
