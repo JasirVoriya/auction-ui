@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import HomePage from '@/pages/home/HomePage.vue'
-import AssetTradingPage from '@/pages/asset-trading/AssetTradingPage.vue'
-import JudicialPage from '@/pages/judicial/JudicialPage.vue'
-import RareGoodsPage from '@/pages/rare-goods/RareGoodsPage.vue'
-import TransactionServicesPage from '@/pages/transaction-services/TransactionServicesPage.vue'
-import HelpCenterPage from '@/pages/help-center/HelpCenterPage.vue'
+import HomePage from '@/pages/HomePage.vue'
+import AssetTradingPage from '@/pages/AssetTradingPage.vue'
+import JudicialPage from '@/pages/JudicialPage.vue'
+import RareGoodsPage from '@/pages/RareGoodsPage.vue'
+import TransactionServicesPage from '@/pages/TransactionServicesPage.vue'
+import HelpCenterPage from '@/pages/HelpCenterPage.vue'
+import LoginPage from '@/pages/LoginPage.vue'
 
 const routes = [
   {
@@ -48,6 +49,13 @@ const routes = [
     component: HelpCenterPage,
     meta: {
       title: '帮助中心',
+    },
+  },
+  {
+    path: '/login',
+    component: LoginPage,
+    meta: {
+      title: '登录',
     },
   },
 ]
