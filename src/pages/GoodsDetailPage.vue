@@ -71,11 +71,11 @@ const tabIndex = ref('0');
                 <nut-countdown v-model="resetTime" :end-time="end">
                   <span class=" text-sm">
                     距离结束还剩：
-                    <span class=" text-red-600 text-2xl">{{ resetTime.d }}</span>天
-                    <span class=" text-red-600 text-2xl">{{ resetTime.h }}</span>时
-                    <span class=" text-red-600 text-2xl">{{ resetTime.m }}</span>分
-                    <span class=" text-red-600 text-2xl">{{ resetTime.s }}</span>秒
-                    <span class=" text-red-600 text-2xl">{{ resetTime.ms }}</span>
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.d).padStart(2,'0')}}</span>天
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.h).padStart(2,'0') }}</span>时
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.m).padStart(2,'0') }}</span>分
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.s).padStart(2,'0') }}</span>秒
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.ms).padStart(3, '0')[0] }}</span>
                   </span>
                 </nut-countdown>
               </div>
