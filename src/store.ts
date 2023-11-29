@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { Category } from '@/types'
 
 const versionString =
   import.meta.env.MODE === 'development'
@@ -11,6 +12,8 @@ export const useStore = defineStore('main', {
     version: versionString,
     isInitialized: false,
     count: 0,
+    //定义分类
+    category: {} as Category
   }),
 
   actions: {

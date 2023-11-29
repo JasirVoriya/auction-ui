@@ -7,6 +7,8 @@ import RareGoodsPage from '@/pages/RareGoodsPage.vue'
 import TransactionServicesPage from '@/pages/TransactionServicesPage.vue'
 import HelpCenterPage from '@/pages/HelpCenterPage.vue'
 import LoginPage from '@/pages/LoginPage.vue'
+import SwiperAndGoodsList from '@/pages/SwiperAndGoodsList.vue'
+import GoodsDetailPage from '@/pages/GoodsDetailPage.vue'
 
 const routes = [
   {
@@ -15,6 +17,12 @@ const routes = [
     meta: {
       title: '拍卖平台',
     },
+    children: [
+      {
+        path:'',
+        component: SwiperAndGoodsList,
+      }
+    ]
   },
   {
     path: '/judicial',
@@ -22,6 +30,12 @@ const routes = [
     meta: {
       title: '司法拍卖',
     },
+    children: [
+      {
+        path:'',
+        component: SwiperAndGoodsList,
+      }
+    ]
   },
   {
     path: '/asset-trading',
@@ -29,6 +43,12 @@ const routes = [
     meta: {
       title: '资产交易',
     },
+    children: [
+      {
+        path:'',
+        component: SwiperAndGoodsList,
+      }
+    ]
   },
   {
     path: '/rare-goods',
@@ -36,13 +56,30 @@ const routes = [
     meta: {
       title: '珍贵好物',
     },
+    children: [
+      {
+        path:'',
+        component: SwiperAndGoodsList,
+      },
+      {
+        path:':goodsId',
+        component: GoodsDetailPage,
+        props: true,
+      }
+    ]
   },
   {
     path: '/transaction-services',
     component: TransactionServicesPage,
     meta: {
-      title: '珍贵好物',
+      title: '交易服务',
     },
+    children: [
+      {
+        path:'',
+        component: SwiperAndGoodsList,
+      }
+    ]
   },
   {
     path: '/help-center',
@@ -50,6 +87,12 @@ const routes = [
     meta: {
       title: '帮助中心',
     },
+    children: [
+      {
+        path:'',
+        component: SwiperAndGoodsList,
+      }
+    ]
   },
   {
     path: '/login',

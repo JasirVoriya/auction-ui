@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const value = ref('0');
+const tagIndex = ref('0');
 const account = ref('');
 const password = ref('');
 const email = ref('');
@@ -38,7 +38,7 @@ const getCode = (event: MouseEvent) => {
     </div>
     <div class="h-3/5 flex items-center justify-center">
       <div class="w-96 h-96 rounded-xl overflow-hidden border-rose-600 border-2">
-        <nut-tabs v-model="value" type="smile">
+        <nut-tabs v-model="tagIndex" type="smile">
           <nut-tab-pane title="密码登录" pane-key="0" style=" background-color: rgba(0,0,0,0);">
             <div class="flex items-center justify-center mt-10">
               <form>
@@ -120,9 +120,9 @@ const getCode = (event: MouseEvent) => {
                                       text-black text-sm
                                       caret-rose-600" placeholder="请输入验证码" v-model="code" name="code" id="code" />
                   <button @click.prevent="getCode" class="flex justify-center items-center w-20 rounded-r-xl 
-                            text-gray-500 text-xs
-                            hover:text-rose-500
-                            disabled:cursor-not-allowed disabled:hover:text-gray-500">
+                                    text-gray-500 text-xs
+                                    hover:text-rose-500
+                                      disabled:cursor-not-allowed disabled:hover:text-gray-500">
                     获取验证码
                   </button>
                 </div>
@@ -133,7 +133,6 @@ const getCode = (event: MouseEvent) => {
                                 active:outline-none active:ring-2 active:ring-rose-600 active:ring-offset-1">
                   登录
                 </button>
-
               </form>
             </div>
             <div class="flex mt-7">
