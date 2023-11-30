@@ -3,7 +3,11 @@ export interface Category {
   link: string;
   children?: Category[];
 }
-
+export interface BidRecord{
+  bidder: string;
+  price: number;
+  time: string;
+}
 export interface Goods {
   title: string;
   price: number;
@@ -20,10 +24,7 @@ export interface Goods {
     increment: number;
     deposit: number;
     extensionPeriod: number;
-    bidRecord: {
-      bidder: string;
-      price: number;
-    }[]
+    bidRecord: BidRecord[];
   };
   time: string;
 }

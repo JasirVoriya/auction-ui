@@ -23,14 +23,17 @@ const goods = ref<Goods>({
       {
         bidder: 'C1234',
         price: 1000,
+        time: '2021-10-10 10:10:10',
       },
       {
         bidder: 'C1434',
         price: 900,
+        time: '2021-10-10 9:10:10',
       },
       {
         bidder: 'C1534',
         price: 800,
+        time: '2021-10-10 8:10:10',
       }
     ]
   },
@@ -165,7 +168,7 @@ const tabIndex = ref('0');
               拍品描述
             </nut-tab-pane>
             <nut-tab-pane :title="'出价记录（' + goods.info.bidRecord.length + '）'" pane-key="1">
-              出价记录
+              <bid-record-list :record-list="goods.info.bidRecord" />
             </nut-tab-pane>
             <nut-tab-pane title="服务保障" pane-key="2">
               服务保障
@@ -179,7 +182,7 @@ const tabIndex = ref('0');
       <div class="col-span-1">
         <div class="bg-gray-100">
           <div class="p-3 border-gray-200 border-[1px] border-l-0">
-            <bid-record-list :bid-record="goods.info.bidRecord" />
+            <bid-record-card :record-list="goods.info.bidRecord" />
             <button @click="tabIndex='1'" class=" text-xs">查看更多></button>
           </div>
           <div class="p-2">

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BidRecord } from '@/types';
+
 defineProps<{
   recordList: BidRecord[]
 }>();
@@ -11,14 +12,13 @@ defineProps<{
       <span class=" text-xs text-gray-500">（{{ recordList.length }}）</span>
     </span>
     <div class="text-xs text-gray-500 flex flex-col gap-1">
-      <div class="grid grid-cols-4 bg-gray-200 p-3">
+      <div class="grid grid-cols-3">
         <span>状态</span>
         <span>竞拍人</span>
         <span>价格</span>
-        <span>时间</span>
       </div>
-      <div class="p-3">
-        <bid-record-list-item :record="record" v-for="record in recordList" />
+      <div>
+        <bid-record-item :record="record" v-for="record in recordList" />
       </div>
     </div>
   </div>
