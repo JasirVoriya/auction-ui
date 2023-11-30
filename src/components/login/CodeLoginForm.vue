@@ -50,12 +50,17 @@ const getCode = (event: MouseEvent) => {
           获取验证码
         </button>
       </div>
+      <div class="pt-3">
+        <span class="text-xs text-black before:content-['*'] before:text-red-500">
+          未注册的邮箱会自动创建账号
+        </span>
+      </div>
       <button type="submit" class="mt-5 w-72 h-9 px-4 py-1
         bg-rose-500
         text-sm font-semibold rounded-xl border border-rose-200 text-white
         hover:bg-rose-600 hover:border-transparent 
         active:outline-none active:ring-2 active:ring-rose-600 active:ring-offset-1">
-        登录
+        登录/注册
       </button>
     </form>
   </div>
@@ -65,11 +70,6 @@ const getCode = (event: MouseEvent) => {
     </a>
     <a class="px-1" href="#">
       <span class="text-xs text-slate-500">支付宝登录</span>
-    </a>
-  </div>
-  <div class="flex flex-row-reverse mt-7">
-    <a class="px-1" href="#">
-      <span class="text-xs text-slate-500">免费注册</span>
     </a>
   </div>
 </template>

@@ -18,7 +18,7 @@ const tagIndex = ref('0');
           <nut-tab-pane title="密码登录" pane-key="0" style=" background-color: rgba(0,0,0,0);">
             <password-login-form/>
           </nut-tab-pane>
-          <nut-tab-pane title="验证码登录" pane-key="1" style=" background-color: rgba(0,0,0,0);">
+          <nut-tab-pane title="验证码登录/注册" pane-key="1" style=" background-color: rgba(0,0,0,0);">
             <code-login-form/>
           </nut-tab-pane>
         </nut-tabs>

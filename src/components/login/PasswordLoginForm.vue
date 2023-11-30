@@ -49,8 +49,5 @@ const password = ref('');
     <a class="px-1" href="#">
       <span class="text-xs text-slate-500">忘记账号</span>
     </a>
-    <a class="px-1" href="#">
-      <span class="text-xs text-slate-500">免费注册</span>
-    </a>
   </div>
 </template>
