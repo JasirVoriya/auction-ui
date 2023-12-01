@@ -3,8 +3,9 @@ import  qs from 'qs'
 // 定义泛型接口，表示请求返回的数据结构
 interface ApiResponse<T> {
   success: boolean;
-  data: T;
+  result: T;
   message?: string;
+  code?: Number;
 }
 const service = axios.create({
   baseURL: 'http://localhost:8080/',
