@@ -25,6 +25,9 @@ export default defineConfig({
         {
           '@/store': ['useStore'],
           '@vueuse/head': ['useHead'],
+          '@/plugins/request': ['request', 'Method'],
+          '@/api': [['common', 'CommonApi']],
+          //
         },
       ],
       dts: 'src/auto-imports.d.ts',

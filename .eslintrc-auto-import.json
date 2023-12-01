@@ -82,6 +82,18 @@
     "ExtractDefaultPropTypes": true,
     "ExtractPropTypes": true,
     "ExtractPublicPropTypes": true,
-    "WritableComputedRef": true
+    "WritableComputedRef": true,
+    "Category": true,
+    "*": true,
+    "Ca": true,
+    "BidRecord": true,
+    "Goods": true,
+    "Method": true,
+    "request": true,
+    "sendLoginCode": true,
+    "com": true,
+    "common": true,
+    "CommonApi": true,
+    "ElMessage": true
   }
 }

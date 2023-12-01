@@ -19,6 +19,10 @@ const getCode = (event: MouseEvent) => {
     }, 1000);
   }
   countDown();
+  CommonApi.sendLoginCode(email.value).then(res => {
+    ElMessage.success(res.message);
+  });
+  // sendLoginCode(email.value);
 };
 </script>
 <template>
