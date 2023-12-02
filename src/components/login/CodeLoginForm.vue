@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import router from '@/router';
+
 const email = ref('');
 const code = ref('');
 const getCode = (event: MouseEvent) => {
@@ -19,10 +21,22 @@ const getCode = (event: MouseEvent) => {
     }, 1000);
   }
   countDown();
-  CommonApi.sendLoginCode(email.value).then(res => {
-    ElMessage.success(res.message);
+  CommonApi.sendLoginCode(email.value).then(()=>ElMessage.success('验证码已发送'));
+};
+const login = () => {
+  PassportApi.codeLogin(email.value, code.value).then(res => {
+    ElMessage.success('登录成功');
+    console.log(res);
+    // 保存token
+    useUserStore().accessToken = res.accessToken;
+    useUserStore().refreshToken = res.refreshToken;
+    // 保存用户信息
+    ProfileApi.getUserProfile().then(res => {
+      useUserStore().userInfo = res;
+      // 跳转到首页
+      router.push({ path: '/' });
+    });
   });
-  // sendLoginCode(email.value);
 };
 </script>
 <template>
@@ -59,7 +73,7 @@ const getCode = (event: MouseEvent) => {
           未注册的邮箱会自动创建账号
         </span>
       </div>
-      <button type="submit" class="mt-5 w-72 h-9 px-4 py-1
+      <button @click.prevent="login" class="mt-5 w-72 h-9 px-4 py-1
         bg-rose-500
         text-sm font-semibold rounded-xl border border-rose-200 text-white
         hover:bg-rose-600 hover:border-transparent 

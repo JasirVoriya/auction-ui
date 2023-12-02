@@ -95,6 +95,8 @@
     "common": true,
     "CommonApi": true,
     "ElMessage": true,
-    "useUserStore": true
+    "useUserStore": true,
+    "PassportApi": true,
+    "ProfileApi": true
   }
 }

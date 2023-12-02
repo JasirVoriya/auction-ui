@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
-import  qs from 'qs'
-import{v4 as uuidv4} from 'uuid'
+import qs from 'qs'
+import { v4 as uuidv4 } from 'uuid'
 // 定义泛型接口，表示请求返回的数据结构
 interface ApiResponse<T> {
   success: boolean;
@@ -25,8 +25,17 @@ service.interceptors.request.use(
     if (isPutPost && !isFile && !isJson) {
       config.data = qs.stringify(config.data, { arrayFormat: "repeat" });
     }
-    if(useUserStore().uuid==='')useUserStore().uuid=uuidv4();
-    config.headers["uuid"]=useUserStore().uuid;
+    // 添加设备唯一标识
+    if (useUserStore().uuid === '') useUserStore().uuid = uuidv4();
+    config.headers["uuid"] = useUserStore().uuid;
+
+    // 添加accessToken和refreshToken
+    if (config.needToken) {
+      // 添加accessToken
+      if (useUserStore().accessToken !== '') config.headers["accessToken"] = useUserStore().accessToken;
+      // 添加refreshToken
+      if (useUserStore().refreshToken !== '') config.headers["refreshToken"] = useUserStore().refreshToken;
+    }
     return config;
   },
   (error) => {
@@ -35,12 +44,12 @@ service.interceptors.request.use(
 );
 service.interceptors.response.use(
   (response) => {
-    if(response.data.success==false){
-      ElMessage.error(response.data.message||'请求失败')
+    if (response.data.success == false) {
+      ElMessage.error(response.data.message || '请求失败')
       return Promise.reject(response);
     }
     //返回数据，根据业务逻辑做相应的处理
-    return response.data;
+    return response.data.result;
   },
   (error: AxiosError<ApiResponse<any>>) => {
     console.log(error);
@@ -49,7 +58,7 @@ service.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-export function request(config: any):Promise<ApiResponse<any>> {
+export function request(config: any): Promise<any> {
   return service(config);
 }
 export const Method = {

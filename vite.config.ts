@@ -26,7 +26,7 @@ export default defineConfig({
           '@/store': ['useStore','useUserStore'],
           '@vueuse/head': ['useHead'],
           '@/plugins/request': ['request', 'Method'],
-          '@/api': [['common', 'CommonApi']],
+          '@/api': [['common', 'CommonApi'], ['passport', 'PassportApi'], ['profile', 'ProfileApi']],
           //
         },
       ],

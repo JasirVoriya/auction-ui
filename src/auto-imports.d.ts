@@ -9,6 +9,8 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const ElMessage: typeof import('element-plus/es')['ElMessage']
   const Method: typeof import('@/plugins/request')['Method']
+  const PassportApi: typeof import('@/api')['passport']
+  const ProfileApi: typeof import('@/api')['profile']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
@@ -55,7 +57,6 @@ declare global {
   const ref: typeof import('vue')['ref']
   const request: typeof import('@/plugins/request')['request']
   const resolveComponent: typeof import('vue')['resolveComponent']
-  const sendLoginCode: typeof import('@api')['sendLoginCode']
   const setActivePinia: typeof import('pinia')['setActivePinia']
   const setMapStoreSuffix: typeof import('pinia')['setMapStoreSuffix']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -98,6 +99,8 @@ declare module 'vue' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly ElMessage: UnwrapRef<typeof import('element-plus/es')['ElMessage']>
     readonly Method: UnwrapRef<typeof import('@/plugins/request')['Method']>
+    readonly PassportApi: UnwrapRef<typeof import('@/api')['passport']>
+    readonly ProfileApi: UnwrapRef<typeof import('@/api')['profile']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -179,6 +182,8 @@ declare module '@vue/runtime-core' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly ElMessage: UnwrapRef<typeof import('element-plus/es')['ElMessage']>
     readonly Method: UnwrapRef<typeof import('@/plugins/request')['Method']>
+    readonly PassportApi: UnwrapRef<typeof import('@/api')['passport']>
+    readonly ProfileApi: UnwrapRef<typeof import('@/api')['profile']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
