@@ -23,7 +23,7 @@ export default defineConfig({
         '@vueuse/head',
         'pinia',
         {
-          '@/store': ['useStore'],
+          '@/store': ['useStore','useUserStore'],
           '@vueuse/head': ['useHead'],
           '@/plugins/request': ['request', 'Method'],
           '@/api': [['common', 'CommonApi']],

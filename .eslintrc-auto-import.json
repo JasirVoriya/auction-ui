@@ -94,6 +94,7 @@
     "com": true,
     "common": true,
     "CommonApi": true,
-    "ElMessage": true
+    "ElMessage": true,
+    "useUserStore": true
   }
 }

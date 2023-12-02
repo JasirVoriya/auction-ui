@@ -11,19 +11,14 @@ export const useStore = defineStore('main', {
     debug: import.meta.env.MODE === 'development',
     version: versionString,
     isInitialized: false,
-    count: 0,
     //定义分类
-    category: {} as Category
+    category: {} as Category,
   }),
 
   actions: {
     initApp() {
       this.isInitialized = true
       console.log('app initialized!')
-    },
-
-    increment(value = 1) {
-      this.count += value
     },
   },
 
@@ -32,4 +27,13 @@ export const useStore = defineStore('main', {
       return !state.isInitialized
     },
   },
+})
+export const useUserStore = defineStore('user', {
+  state: () => ({
+    uuid: '',
+    accessToken: '',
+    refreshToken: '',
+    userInfo: {},
+  }),
+  persist:true,
 })

@@ -1,5 +1,6 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import  qs from 'qs'
+import{v4 as uuidv4} from 'uuid'
 // 定义泛型接口，表示请求返回的数据结构
 interface ApiResponse<T> {
   success: boolean;
@@ -24,7 +25,8 @@ service.interceptors.request.use(
     if (isPutPost && !isFile && !isJson) {
       config.data = qs.stringify(config.data, { arrayFormat: "repeat" });
     }
-    config.headers["uuid"]='123456789';
+    if(useUserStore().uuid==='')useUserStore().uuid=uuidv4();
+    config.headers["uuid"]=useUserStore().uuid;
     return config;
   },
   (error) => {
@@ -35,13 +37,15 @@ service.interceptors.response.use(
   (response) => {
     if(response.data.success==false){
       ElMessage.error(response.data.message||'请求失败')
-      return Promise.reject(response.data);
+      return Promise.reject(response);
     }
     //返回数据，根据业务逻辑做相应的处理
     return response.data;
   },
-  (error) => {
+  (error: AxiosError<ApiResponse<any>>) => {
     console.log(error);
+    const errorMessage = error.response?.data?.message || '请求失败';
+    ElMessage.error(errorMessage);
     return Promise.reject(error);
   }
 );
