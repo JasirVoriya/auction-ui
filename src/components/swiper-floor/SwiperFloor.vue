@@ -10,7 +10,8 @@
         <swiper-card />
       </div>
       <div class="w-[23%] rounded-r-lg shadow-lg p-3">
-        <user-center-card />
+        <user-center-card v-if="useUserStore().isLogin" />
+        <login-and-register-card v-else />
       </div>
     </div>
   </container-box>

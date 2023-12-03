@@ -14,7 +14,7 @@ const service = axios.create({
   paramsSerializer: (params) => qs.stringify(params, { arrayFormat: "repeat" }),
 });
 service.interceptors.request.use(
-  (config) => {
+  (config:any) => {
     // 如果是put/post请求，用qs.stringify序列化参数
     const isPutPost = config.method === "put" || config.method === "post";
     const isJson = config.headers["Content-Type"] === "application/json";

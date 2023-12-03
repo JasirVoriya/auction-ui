@@ -365,6 +365,11 @@
   resolved "https://registry.npmmirror.com/@nutui/auto-import-resolver/-/auto-import-resolver-1.0.0.tgz#ae87f126f3e7dd94d837c7218caf468dc1fad480"
   integrity sha512-j92ehNlnJKq+O8+DJx4MP+2izdg2UBSZhPVC6ivIXUKAL3p8BXDMcivvGfOJM0n2adD1ZpMHO6M3R6RiWB68kw==
 
+"@nutui/icons-vue-taro@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.npmmirror.com/@nutui/icons-vue-taro/-/icons-vue-taro-0.0.9.tgz#b5223eb01e2b987fdbe460e5d0439a66481e54f1"
+  integrity sha512-10VYAtFC+o1X0anGs+y2PgF1NWMeLFz2JVMRw4BWLg6wbtVbYy9wukLxyGhZC6Yf6t39DcwaGVda8paV7K6/Ew==
+
 "@nutui/icons-vue@^0.1.1":
   version "0.1.1"
   resolved "https://registry.npmmirror.com/@nutui/icons-vue/-/icons-vue-0.1.1.tgz#d90b3e5d5e109aebb775e4dd5167d702f3adcec1"

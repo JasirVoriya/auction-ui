@@ -1,4 +1,5 @@
 <script setup lang="ts">
+ProfileApi.getUserProfile().then(res => useUserStore().userInfo = res).catch(() => useUserStore().userInfo = {});
 </script>
 <template>
   <!-- <img src="@/assets/svg/bg.svg" class="bg-scroll absolute bottom-0 w-full h-auto z-0" /> -->

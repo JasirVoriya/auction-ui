@@ -1,6 +1,23 @@
 <script setup lang="ts">
+import router from '@/router';
+
 const account = ref('');
 const password = ref('');
+const login = () => {
+  PassportApi.passwordLogin(account.value, password.value).then(res => {
+    ElMessage.success('登录成功');
+    console.log(res);
+    // 保存token
+    useUserStore().accessToken = res.accessToken;
+    useUserStore().refreshToken = res.refreshToken;
+    // 保存用户信息
+    ProfileApi.getUserProfile().then(res => {
+      useUserStore().userInfo = res;
+      // 跳转到首页
+      router.push({ path: '/' });
+    });
+  });
+};
 </script>
 <template>
   <div class="flex items-center justify-center mt-10">
@@ -25,7 +42,7 @@ const password = ref('');
           text-black text-sm
           caret-rose-600" placeholder="请输入密码" v-model="password" name="password" id="password" />
       </div>
-      <button type="submit" class="mt-5 w-72 h-9 px-4 py-1
+      <button @click.prevent="login" class="mt-5 w-72 h-9 px-4 py-1
         bg-rose-500
         text-sm font-semibold rounded-xl border border-rose-200 text-white
         hover:bg-rose-600 hover:border-transparent 

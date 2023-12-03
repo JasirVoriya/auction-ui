@@ -33,7 +33,12 @@ export const useUserStore = defineStore('user', {
     uuid: '',
     accessToken: '',
     refreshToken: '',
-    userInfo: {},
+    userInfo: {} as any,
   }),
-  persist:true,
+  getters: {
+    isLogin: (state) => {
+      return state.accessToken !== '' && state.refreshToken !== '' && Object.keys(state.userInfo).length !== 0;
+    },
+  },
+  persist: true,
 })

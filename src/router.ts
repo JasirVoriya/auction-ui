@@ -9,6 +9,8 @@ import HelpCenterPage from '@/pages/HelpCenterPage.vue'
 import LoginPage from '@/pages/LoginPage.vue'
 import SwiperAndGoodsList from '@/pages/SwiperAndGoodsList.vue'
 import GoodsDetailPage from '@/pages/GoodsDetailPage.vue'
+import UserCenterPage from '@/pages/UserCenterPage.vue'
+import TestPage from '@/pages/TestPage.vue'
 
 const routes = [
   {
@@ -101,6 +103,21 @@ const routes = [
       title: '登录',
     },
   },
+  {
+    path: '/user-center',
+    component: UserCenterPage,
+    meta: {
+      title: '用户中心',
+    },
+  },
+  {
+    path: '/test',
+    component: TestPage,
+    meta: {
+      title: '测试',
+    },
+  },
+
 ]
 
 const router = createRouter({
