@@ -9,7 +9,7 @@ const cutImage = (url: String) => {
 const updateGender = (sex: Number) => {
   ProfileApi.updateUserSex({ sex: sex }).then(() => ElMessage.success('修改成功'));
 }
-const tabIndex = ref('1');
+const tabIndex = ref('0');
 const avatarCropperRef = ref();
 </script>
 <template>
@@ -67,11 +67,36 @@ const avatarCropperRef = ref();
   </div>
   <div>
     <el-tabs v-model="tabIndex">
-    <el-tab-pane label="待交保" name="1">待交保</el-tab-pane>
-    <el-tab-pane label="待开拍" name="2">待开拍</el-tab-pane>
-    <el-tab-pane label="竞价中" name="3">竞价中</el-tab-pane>
-    <el-tab-pane label="已结束" name="4">已结束</el-tab-pane>
-    <el-tab-pane label="已拍下" name="5">已拍下</el-tab-pane>
-  </el-tabs>
+      <el-tab-pane label="全部拍品" name="0">
+        <div class="px-16">
+          <order-list />
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="待交保" name="1">
+        <div class="px-16">
+          <order-list />
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="待开拍" name="2">
+        <div class="px-16">
+          <order-list />
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="竞价中" name="3">
+        <div class="px-16">
+          <order-list />
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="已结束" name="4">
+        <div class="px-16">
+          <order-list />
+        </div>
+      </el-tab-pane>
+      <el-tab-pane label="已拍下" name="5">
+        <div class="px-16">
+          <order-list />
+        </div>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
