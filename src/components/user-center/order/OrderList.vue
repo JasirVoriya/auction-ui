@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const page = ref(1);
-const pageChange = (value) => {
+const pageChange = (value:Number) => {
   console.log(value);
 };
 </script>
