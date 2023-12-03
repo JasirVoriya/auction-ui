@@ -27,18 +27,22 @@ const helpList = reactive([
 </script>
 <template>
   <div class="w-full flex flex-col">
-    <div class="flex gap-2 m-1 mb-3">
-      <nut-avatar size="normal" class=" overflow-hidden">
-        <img v-if="useUserStore().userInfo.avatar" :src="useUserStore().userInfo.avatar" />
-        <My v-else />
-      </nut-avatar>
-      <span class="text-rose-600 text-xs font-bold self-center py-1 truncate">
-        <span>{{ useUserStore().userInfo.username }}</span>
-      </span>
-      <a href="/user-center" class="text-xs w-32 font-bold self-center">
-        <span>我的拍卖</span>
-        <span class=" text-gray-300">&nbsp;&gt;</span>
-      </a>
+    <div class="flex gap-2 m-1 mb-3 justify-between">
+      <div class="flex w-54">
+        <nut-avatar size="normal" class=" overflow-hidden">
+          <img v-if="useUserStore().userInfo.avatar" :src="useUserStore().userInfo.avatar" />
+          <My v-else />
+        </nut-avatar>
+        <span class="text-rose-600 text-xs font-bold self-center p-1 truncate">
+          <span>{{ useUserStore().userInfo.username }}</span>
+        </span>
+      </div>
+      <div class="flex items-end">
+        <a href="/user-center" class="text-xs font-bold self-center">
+          <span>我的拍卖</span>
+          <span class=" text-gray-300">&nbsp;&gt;</span>
+        </a>
+      </div>
     </div>
     <div class="flex bg-gray-100 rounded-xl border-[1px] px-1 py-3 gap-2 justify-center">
       <div class="flex flex-col justify-center items-center">

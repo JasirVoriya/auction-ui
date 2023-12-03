@@ -33,6 +33,7 @@ declare module 'vue' {
     HotGoodsList: typeof import('./components/goods-detail/HotGoodsList.vue')['default']
     LoginAndRegisterCard: typeof import('./components/swiper-floor/LoginAndRegisterCard.vue')['default']
     MessageBox: typeof import('./components/MessageBox.vue')['default']
+    MyPostGoods: typeof import('./components/user-center/MyPostGoods.vue')['default']
     NutAvatar: typeof import('@nutui/nutui')['Avatar']
     NutAvatarCropper: typeof import('@nutui/nutui')['AvatarCropper']
     NutBacktop: typeof import('@nutui/nutui')['Backtop']
