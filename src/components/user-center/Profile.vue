@@ -13,7 +13,7 @@ const tabIndex = ref('0');
 const avatarCropperRef = ref();
 </script>
 <template>
-  <div class="flex items-center border border-gray-300 shadow-md rounded-xl m-5">
+  <div class="flex pl-10 items-center border border-gray-300 shadow-md rounded-xl m-5">
     <div class="relative">
       <div class=" opacity-0 hover:opacity-100 absolute z-10">
         <nut-avatar-cropper @confirm="cutImage" ref="avatarCropperRef">
