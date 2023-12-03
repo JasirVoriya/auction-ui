@@ -7,7 +7,6 @@ ProfileApi.getUserProfile().then(res => useUserStore().userInfo = res).catch(() 
     <router-view />
     <nut-backtop class="cursor-pointer" :distance="200" :right="50" :bottom="50">
     </nut-backtop>
-
   </div>
 </template>
 <style>
