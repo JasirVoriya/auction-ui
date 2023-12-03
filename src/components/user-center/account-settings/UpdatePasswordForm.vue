@@ -21,16 +21,30 @@ const getCode = (event: MouseEvent) => {
     }, 1000);
   }
   countDown();
-  // CommonApi.sendLoginCode(email.value).then(()=>ElMessage.success('验证码已发送'));
+  CommonApi.sendChangePasswordCode(useUserStore().userInfo.email).then(() => ElMessage.success('验证码已发送'));
 };
 const submit = () => {
-  console.log('提交');
+  //检查密码是否一致
+  if (password.value !== verifyPassword.value) {
+    ElMessage.error('两次密码不一致');
+    return;
+  }
+  PassportApi.changePassword(useUserStore().userInfo.email, code.value, password.value).then(res => {
+    ElMessage.success('修改成功');
+    PassportApi.logout().then(() => {
+      ElMessage.success('退出登录');
+      useUserStore().accessToken = '';
+      useUserStore().refreshToken = '';
+      router.push({ path: '/' });
+    });
+  });
 }
 </script>
 <template>
   <div class="flex gap-4 p-10 mt-5 border border-gray-300 shadow-md justify-center">
     <div class="flex flex-col gap-4">
-      <span class="text-red-600 font-bold"><span class="mb-2 font-semibold　text-gray-600">用户邮箱：</span>{{ useUserStore().userInfo.email }}</span>
+      <span class="text-red-600 font-bold"><span class="mb-2 font-semibold　text-gray-600">用户邮箱：</span>{{
+        useUserStore().userInfo.email }}</span>
       <div class="flex border-2 border-rose-600 rounded-2xl w-72 h-9 mt-3">
         <label class="flex justify-center items-center w-14 rounded-l-xl text-white text-sm bg-rose-600"
           for="code-for-change-password">

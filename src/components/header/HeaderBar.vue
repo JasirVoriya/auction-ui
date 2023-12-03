@@ -8,7 +8,8 @@ defineProps({
 });
 const logout = () => {
   PassportApi.logout().then(() => {
-    ElMessage.success('退出成功'); useUserStore().accessToken = '';
+    ElMessage.success('退出登录'); 
+    useUserStore().accessToken = '';
     useUserStore().refreshToken = '';
     window.location.reload();
   });
