@@ -67,4 +67,4 @@ const login = () => {
       <span class="text-xs text-slate-500">忘记账号</span>
     </a>
   </div>
-</template>
+</template>@/router/router

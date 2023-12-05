@@ -13,10 +13,10 @@ const tabIndex = ref('0');
 const avatarCropperRef = ref();
 </script>
 <template>
-  <div class="flex pl-10 items-center border border-gray-300 shadow-md rounded-xl m-5">
+  <div class="flex pl-10 items-center border border-gray-300 m-5">
     <div class="relative">
       <div class=" opacity-0 hover:opacity-100 absolute z-10">
-        <nut-avatar-cropper @confirm="cutImage" ref="avatarCropperRef">
+        <nut-avatar-cropper ref="avatarCropperRef" @confirm="cutImage">
           <nut-avatar size="150" class=" overflow-hidden">
             <img v-if="useUserStore().userInfo.avatar" :src="useUserStore().userInfo.avatar" />
             <My v-else size="100" />
@@ -47,18 +47,18 @@ const avatarCropperRef = ref();
         <span class="mb-2 text-red-600 font-bold">{{ useUserStore().userInfo.email }}</span>
         <div class="mb-2">
           <label class="inline-flex items-center">
-            <input type="radio" class="form-radio focus:ring-0 text-rose-600" @click="updateGender(0)" name="gender"
-              :value="0" v-model="useUserStore().userInfo.sex">
+            <input v-model="useUserStore().userInfo.sex" type="radio" class="form-radio focus:ring-0 text-rose-600"
+              name="gender" :value="0" @click="updateGender(0)">
             <span class="ml-2">未知</span>
           </label>
           <label class="inline-flex items-center ml-6">
-            <input type="radio" class="form-radio focus:ring-0 text-rose-600" @click="updateGender(1)" name="gender"
-              :value="1" v-model="useUserStore().userInfo.sex">
+            <input v-model="useUserStore().userInfo.sex" type="radio" class="form-radio focus:ring-0 text-rose-600"
+              name="gender" :value="1" @click="updateGender(1)">
             <span class="ml-2">男</span>
           </label>
           <label class="inline-flex items-center ml-6">
-            <input type="radio" class="form-radio focus:ring-0 text-rose-600" @click="updateGender(2)" name="gender"
-              :value="2" v-model="useUserStore().userInfo.sex">
+            <input v-model="useUserStore().userInfo.sex" type="radio" class="form-radio focus:ring-0 text-rose-600"
+              name="gender" :value="2" @click="updateGender(2)">
             <span class="ml-2">女</span>
           </label>
         </div>
@@ -66,34 +66,34 @@ const avatarCropperRef = ref();
     </div>
   </div>
   <div>
-    <el-tabs v-model="tabIndex">
+    <el-tabs v-model="tabIndex" tab-position="left">
       <el-tab-pane label="全部拍品" name="0">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="待交保" name="1">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="待开拍" name="2">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="竞价中" name="3">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="已结束" name="4">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="已拍下" name="5">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>

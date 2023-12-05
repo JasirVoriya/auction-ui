@@ -35,6 +35,13 @@ export const useUserStore = defineStore('user', {
     refreshToken: '',
     userInfo: {} as any,
   }),
+  actions: {
+    logout() {
+      this.accessToken = "";
+      this.refreshToken = "";
+      this.userInfo = {};
+    }
+  },
   getters: {
     isLogin: (state) => {
       return state.accessToken !== '' && state.refreshToken !== '' && Object.keys(state.userInfo).length !== 0;

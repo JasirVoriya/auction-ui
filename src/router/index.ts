@@ -21,7 +21,7 @@ const routes = [
     },
     children: [
       {
-        path:'',
+        path: '',
         component: SwiperAndGoodsList,
       }
     ]
@@ -34,8 +34,13 @@ const routes = [
     },
     children: [
       {
-        path:'',
+        path: '',
         component: SwiperAndGoodsList,
+      },
+      {
+        path: ':goodsId',
+        component: GoodsDetailPage,
+        props: true,
       }
     ]
   },
@@ -47,7 +52,7 @@ const routes = [
     },
     children: [
       {
-        path:'',
+        path: '',
         component: SwiperAndGoodsList,
       }
     ]
@@ -60,11 +65,11 @@ const routes = [
     },
     children: [
       {
-        path:'',
+        path: '',
         component: SwiperAndGoodsList,
       },
       {
-        path:':goodsId',
+        path: ':goodsId',
         component: GoodsDetailPage,
         props: true,
       }
@@ -78,7 +83,7 @@ const routes = [
     },
     children: [
       {
-        path:'',
+        path: '',
         component: SwiperAndGoodsList,
       }
     ]
@@ -91,7 +96,7 @@ const routes = [
     },
     children: [
       {
-        path:'',
+        path: '',
         component: SwiperAndGoodsList,
       }
     ]

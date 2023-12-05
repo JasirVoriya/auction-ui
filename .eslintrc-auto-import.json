@@ -97,6 +97,10 @@
     "ElMessage": true,
     "useUserStore": true,
     "PassportApi": true,
-    "ProfileApi": true
+    "ProfileApi": true,
+    "CategoryApi": true,
+    "GoodsApi": true,
+    "categoryApi": true,
+    "goodsApi": true
   }
 }

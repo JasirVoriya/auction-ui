@@ -23,10 +23,10 @@ export default defineConfig({
         '@vueuse/head',
         'pinia',
         {
-          '@/store': ['useStore','useUserStore'],
+          '@/store': ['useStore', 'useUserStore'],
           '@vueuse/head': ['useHead'],
           '@/plugins/request': ['request', 'Method'],
-          '@/api': [['common', 'CommonApi'], ['passport', 'PassportApi'], ['profile', 'ProfileApi']],
+          '@/api': [['common', 'CommonApi'], ['passport', 'PassportApi'], ['profile', 'ProfileApi'], ['category', 'categoryApi'], ['goods', 'goodsApi']],
           //
         },
       ],

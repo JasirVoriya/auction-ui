@@ -1,43 +1,10 @@
 <script setup lang="ts">
-import { Goods } from '@/types';
-defineProps<{
+const props = defineProps<{
   goodsId: string;
 }>();
-const goods = ref<Goods>({
-  title: '「秒杀盛宴」未使用 Givenchy纪梵希 红丝绒N37朱砂红 佳琦推荐',
-  price: 1000,
-  status: '正在进行',
-  cover: 'https://gw.alicdn.com/bao/uploaded/i4/O1CN01AfmyYw23zodPUjOf4_!!0-paimai.jpg_290x10000Q75.jpg_.webp',
-  url: '/rare-goods/13215432',
-  info: {
-    assetType: '民间资产',
-    company: '上海拍卖行',
-    view: 134,// 围观人数
-    registration: 43,
-    startingPrice: 1, // 起拍价
-    commission: 0, // 佣金
-    increment: 100, // 加价幅度
-    deposit: 20, // 保证金
-    extensionPeriod: 0, // 延期周期
-    bidRecord: [
-      {
-        bidder: 'C1234',
-        price: 1000,
-        time: '2021-10-10 10:10:10',
-      },
-      {
-        bidder: 'C1434',
-        price: 900,
-        time: '2021-10-10 9:10:10',
-      },
-      {
-        bidder: 'C1534',
-        price: 800,
-        time: '2021-10-10 8:10:10',
-      }
-    ]
-  },
-  time: '2021-10-10 10:10:10',
+const goods = ref({} as any);
+goodsApi.getGoods(props.goodsId).then(res => {
+  goods.value = res;
 });
 const end = ref(Date.now() + 60 * 60 * 1000);
 const resetTime = ref({
@@ -66,7 +33,7 @@ const tabIndex = ref('0');
           </div>
           <div class="col-span-5">
             <div class=" pl-3">
-              <p class=" text-sm font-semibold">{{ goods.title }}</p>
+              <p class=" text-sm font-semibold">{{ goods.name }}</p>
               <div class="py-3">
                 <span class="bg-rose-600 text-white py-1 px-3 text-sm rounded-r-full">
                   {{ goods.status }}
@@ -74,10 +41,10 @@ const tabIndex = ref('0');
                 <nut-countdown v-model="resetTime" :end-time="end">
                   <span class=" text-sm">
                     距离结束还剩：
-                    <span class=" text-red-600 text-2xl">{{ String(resetTime.d).padStart(2,'0')}}</span>天
-                    <span class=" text-red-600 text-2xl">{{ String(resetTime.h).padStart(2,'0') }}</span>时
-                    <span class=" text-red-600 text-2xl">{{ String(resetTime.m).padStart(2,'0') }}</span>分
-                    <span class=" text-red-600 text-2xl">{{ String(resetTime.s).padStart(2,'0') }}</span>秒
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.d).padStart(2, '0') }}</span>天
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.h).padStart(2, '0') }}</span>时
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.m).padStart(2, '0') }}</span>分
+                    <span class=" text-red-600 text-2xl">{{ String(resetTime.s).padStart(2, '0') }}</span>秒
                     <span class=" text-red-600 text-2xl">{{ String(resetTime.ms).padStart(3, '0')[0] }}</span>
                   </span>
                 </nut-countdown>
@@ -86,11 +53,11 @@ const tabIndex = ref('0');
                 <span class=" text-xs text-gray-500">
                   当前价
                   <nut-price class="px-2 font-semibold" size="large" :price="goods.price" :decimal-digits="0" thousands />
-                  （<span class="text-xs text-rose-600 font-semibold">{{goods.info.bidRecord.length}}</span>次出价）
+                  （<span class="text-xs text-rose-600 font-semibold">{{ 21212 }}</span>次出价）
                 </span>
                 <span class=" text-xs text-gray-500">
                   保证金
-                  <nut-price class="px-2 font-semibold" size="large" :price="goods.info.deposit" :decimal-digits="0"
+                  <nut-price class="px-2 font-semibold" size="large" :price="goods.deposit" :decimal-digits="0"
                     thousands />
                 </span>
                 <button
@@ -110,30 +77,30 @@ const tabIndex = ref('0');
               </div>
               <div class="m-3 flex justify-between items-end">
                 <span class="text-xl font-bold">
-                  {{ goods.info.assetType }}
+                  {{ goods.goodsType }}
                 </span>
                 <div class="text-gray-500 text-sm flex divide-x">
                   <span class="pr-3">
-                    <span class=" text-xl text-orange-500">{{ goods.info.registration }}</span>
+                    <span class=" text-xl text-orange-500">{{ goods.registration }}</span>
                     人报名
                   </span>
                   <span class="pl-3">
-                    <span class=" text-xl text-orange-500">{{ goods.info.view }}</span>
+                    <span class=" text-xl text-orange-500">{{ goods.view }}</span>
                     人围观
                   </span>
                 </div>
               </div>
               <div class="columns-3 text-gray-500 text-xs leading-5 border-gray-300 border-y-[1px] py-1">
-                <p>起拍价：￥{{ goods.info.startingPrice }}</p>
-                <p>佣&nbsp;&nbsp;&nbsp;金：￥{{ goods.info.commission }}</p>
-                <p>加价幅度：￥{{ goods.info.increment }}</p>
-                <p>延时周期：{{ goods.info.extensionPeriod !== 0 ? goods.info.extensionPeriod : '无' }}</p>
-                <p>保证金：￥{{ goods.info.deposit }}</p>
+                <p>起拍价：￥{{ goods.startingPrice }}</p>
+                <p>佣&nbsp;&nbsp;&nbsp;金：￥{{ goods.commission }}</p>
+                <p>加价幅度：￥{{ goods.increment }}</p>
+                <p>延时周期：{{ goods.extensionPeriod !== 0 ? goods.extensionPeriod : '无' }}</p>
+                <p>保证金：￥{{ goods.deposit }}</p>
               </div>
               <div class="flex flex-col gap-1 py-2 text-gray-500 text-xs">
                 <span>
                   <span>送拍机构：</span>
-                  <span class="pr-2">{{ goods.info.company }}</span>
+                  <span class="pr-2">{{ goods.company }}</span>
                   <button @click="tabIndex = '2'"
                     class=" bg-yellow-200 text-red-500 rounded-sm py-[1px] px-1">和我联系</button>
                 </span>
@@ -167,8 +134,8 @@ const tabIndex = ref('0');
             <nut-tab-pane title="拍品描述" pane-key="0">
               拍品描述
             </nut-tab-pane>
-            <nut-tab-pane :title="'出价记录（' + goods.info.bidRecord.length + '）'" pane-key="1">
-              <bid-record-list :record-list="goods.info.bidRecord" />
+            <nut-tab-pane :title="'出价记录（' + 21212 + '）'" pane-key="1">
+              <!-- <bid-record-list :record-list="goods.bidRecord" /> -->
             </nut-tab-pane>
             <nut-tab-pane title="服务保障" pane-key="2">
               服务保障
@@ -182,8 +149,8 @@ const tabIndex = ref('0');
       <div class="col-span-1">
         <div class="bg-gray-100">
           <div class="p-3 border-gray-200 border-[1px] border-l-0">
-            <bid-record-card :record-list="goods.info.bidRecord" />
-            <button @click="tabIndex='1'" class=" text-xs">查看更多></button>
+            <!-- <bid-record-card :record-list="goods.bidRecord" /> -->
+            <button @click="tabIndex = '1'" class=" text-xs">查看更多></button>
           </div>
           <div class="p-2">
             <hot-goods-list :goods-list="[goods, goods, goods, goods]" />

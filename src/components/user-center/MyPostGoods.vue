@@ -3,7 +3,7 @@ import { My } from '@nutui/icons-vue-taro';
 const tabIndex = ref('0');
 </script>
 <template>
-  <div class="flex px-10 py-8 items-center justify-between border border-gray-300 shadow-md rounded-xl m-5">
+  <div class="flex px-10 py-8 items-center justify-between border border-gray-300 m-5">
     <div class="relative">
       <nut-avatar size="150" class=" overflow-hidden">
         <img v-if="useUserStore().userInfo.avatar" :src="useUserStore().userInfo.avatar" />
@@ -17,34 +17,34 @@ const tabIndex = ref('0');
     </div>
   </div>
   <div>
-    <el-tabs v-model="tabIndex">
+    <el-tabs v-model="tabIndex" tab-position="left">
       <el-tab-pane label="全部拍品" name="0">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="待交保" name="1">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="待开拍" name="2">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="竞价中" name="3">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="已结束" name="4">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>
       <el-tab-pane label="已拍下" name="5">
-        <div class="px-16">
+        <div class="px-10">
           <order-list />
         </div>
       </el-tab-pane>

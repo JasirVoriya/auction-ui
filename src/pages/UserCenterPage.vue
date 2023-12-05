@@ -13,7 +13,7 @@ const tagIndex = ref('0');
     </div>
     <container-box>
       <div class="flex items-center justify-center">
-        <nut-tabs v-model="tagIndex" title-scroll direction="vertical">
+        <nut-tabs v-model="tagIndex" title-scroll>
           <nut-tab-pane pane-key="0" title="个人中心">
             <profile />
           </nut-tab-pane>

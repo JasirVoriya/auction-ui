@@ -3,7 +3,7 @@ const tagIndex = ref('1');
 </script>
 <template>
 
-  <el-tabs v-model="tagIndex" class="">
+  <el-tabs tab-position="left" v-model="tagIndex" class="">
     <el-tab-pane label="修改用户名" name="1">
       <update-username-form />
     </el-tab-pane>

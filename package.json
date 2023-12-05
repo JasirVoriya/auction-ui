@@ -24,7 +24,8 @@
     "qs": "^6.11.2",
     "uuid": "^9.0.1",
     "vue": "3.3.8",
-    "vue-router": "4.2.5"
+    "vue-router": "4.2.5",
+    "vue-waterfall-plugin-next": "^2.2.10"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "1.4.0",

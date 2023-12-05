@@ -90,4 +90,4 @@ const login = () => {
       <span class="text-xs text-slate-500">支付宝登录</span>
     </a>
   </div>
-</template>
+</template>@/router/router

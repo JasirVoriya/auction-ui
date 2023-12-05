@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { Goods } from '@/types'
-defineProps<{
-  goods: Goods
-}>();
+defineProps({
+  goods: {} as any
+});
 </script>
 <template>
   <div class="bg-white my-4">
@@ -10,7 +9,7 @@ defineProps<{
       <a href="#">
         <img :src="goods.cover" class=" object-cover aspect-1" />
         <span class="absolute bottom-0 left-0 bg-gray-300 w-full truncate text-center text-xs py-1 hover:text-rose-600">
-          {{ goods.title }}
+          {{ goods.name }}
         </span>
       </a>
     </div>
@@ -21,7 +20,7 @@ defineProps<{
       </div>
       <div>
         <span>出价</span>
-        <span class=" text-rose-600 font-bold px-1">{{ goods.info.bidRecord.length }}</span>
+        <span class=" text-rose-600 font-bold px-1">{{ 12121 }}</span>
         <span>次</span>
       </div>
     </div>
