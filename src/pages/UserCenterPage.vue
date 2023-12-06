@@ -17,11 +17,14 @@ const tagIndex = ref('0');
           <nut-tab-pane pane-key="0" title="个人中心">
             <profile />
           </nut-tab-pane>
-          <nut-tab-pane pane-key="1" title="账号设置">
-            <account-settings />
-          </nut-tab-pane>
-          <nut-tab-pane pane-key="2" title="我的发布">
+          <nut-tab-pane pane-key="1" title="我的发布">
             <my-post-goods />
+          </nut-tab-pane>
+          <nut-tab-pane pane-key="2" title="钱包">
+            <wallet />
+          </nut-tab-pane>
+          <nut-tab-pane pane-key="3" title="账号设置">
+            <account-settings />
           </nut-tab-pane>
         </nut-tabs>
       </div>

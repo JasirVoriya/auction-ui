@@ -5,7 +5,7 @@ import 'vue-waterfall-plugin-next/dist/style.css'
 const goodsList = ref([]);
 const pageData = ref({
   page: 1,
-  size: 10,
+  size: 9,
   total: 0
 });
 goodsApi.getGoodsList(pageData.value.page, pageData.value.size).then(res => {

@@ -1,44 +1,56 @@
 <script setup lang="ts">
-const cover = 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1695211669.21787750.png'
+const props = defineProps({ record: {} as any })
+const statusTitle: any[] = []
+statusTitle[1] = '待交保'
+statusTitle[2] = '待开拍'
+statusTitle[3] = '竞拍中'
+statusTitle[4] = '已结束'
+statusTitle[5] = '已拍下'
+const detailUrl = ref('');
+if (props.record.goodsType == '司法资产') {
+  detailUrl.value = `/judicial/${props.record.goodsId}`;
+} else if (props.record.goodsType == '民间珍品') {
+  detailUrl.value = `/rare-goods/${props.record.goodsId}`;
+}
 </script>
 <template>
   <div class="flex flex-col border-gray-400 border-[1px]">
     <div class="flex justify-between px-10 py-5">
       <div>
         <div class=" text-gray-300 text-2xl font-light">
-          <span>已收货</span>
+          <span>
+            {{ statusTitle[record.status] }}
+          </span>
         </div>
         <div class="text-gray-500 text-sm font-light flex divide-x pt-2">
-          <span class="px-3 pl-0">2023-12-3 21:10:10</span>
-          <span class="px-3">伍学明</span>
-          <span class="px-3">订单号：123456789</span>
-          <span class="px-3">在线支付</span>
+          <span class="px-3 pl-0">{{ record.latestTime }}</span>
+          <span class="px-3">{{ record.bidderName }}</span>
+          <span class="px-3">单号：{{ record.participatorId }}</span>
         </div>
       </div>
       <div class="flex justify-end items-end text-gray-500 text-sm font-light">
-        <span>实付金额：</span>
-        <span class=" text-gray-700 text-2xl px-1 font-bold">2199.00</span>
+        <span>您的出价：</span>
+        <span class=" text-gray-700 text-2xl px-1 font-bold">
+          {{ record.badderLatestPrice }}
+        </span>
         <span>元</span>
       </div>
     </div>
     <div class="flex justify-between border-t-[1px]">
       <div class="flex px-10 py-5 gap-5">
-        <img :src="cover" class=" w-24 h-24 object-contain" />
+        <img :src="record.goodsCover" class=" w-24 h-24 object-contain" />
         <div>
           <div class=" text-gray-900 text-sm font-bold">
-            <span>Redmi Note 13 Pro+</span>
+            <span>{{ record.goodsName }}</span>
           </div>
           <div class=" text-gray-500 text-sm font-light flex divide-x pt-2">
-            <span class="px-3">颜色：陶瓷白</span>
-            <span class="px-3">版本：16+512G</span>
-            <span class="px-3">数量：1</span>
+            <span class="px-3">拍卖机构：{{ record.sellerName }}</span>
+            <span class="px-3">当前价：{{ record.goodsLatestPrice }}元</span>
           </div>
         </div>
       </div>
       <div class="flex flex-col text-gray-500 font-light text-xs gap-2 w-64 items-center justify-center">
-        <button class=" border-[1px] border-gray-500 py-1 px-6">订单详情</button>
-        <button class=" border-[1px] border-gray-500 py-1 px-6">申请售后</button>
-        <button class=" border-[1px] border-gray-500 py-1 px-6">联系客服</button>
+        <router-link :to="detailUrl" class=" border-[1px] border-gray-500 py-1 px-6">商品详情</router-link>
       </div>
     </div>
   </div>

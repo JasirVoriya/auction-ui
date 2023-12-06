@@ -14,6 +14,7 @@ declare global {
   const PassportApi: typeof import('@/api')['passport']
   const ProfileApi: typeof import('@/api')['profile']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
+  const bidRecordApi: typeof import('@/api')['bidRecord']
   const categoryApi: typeof import('@/api')['category']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
@@ -55,6 +56,7 @@ declare global {
   const onServerPrefetch: typeof import('vue')['onServerPrefetch']
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
+  const participateApi: typeof import('@/api')['participate']
   const provide: typeof import('vue')['provide']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
@@ -107,6 +109,7 @@ declare module 'vue' {
     readonly PassportApi: UnwrapRef<typeof import('@/api')['passport']>
     readonly ProfileApi: UnwrapRef<typeof import('@/api')['profile']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
+    readonly bidRecordApi: UnwrapRef<typeof import('@/api')['bidRecord']>
     readonly categoryApi: UnwrapRef<typeof import('@/api')['category']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -148,6 +151,7 @@ declare module 'vue' {
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
+    readonly participateApi: UnwrapRef<typeof import('@/api')['participate']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
@@ -192,6 +196,7 @@ declare module '@vue/runtime-core' {
     readonly PassportApi: UnwrapRef<typeof import('@/api')['passport']>
     readonly ProfileApi: UnwrapRef<typeof import('@/api')['profile']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
+    readonly bidRecordApi: UnwrapRef<typeof import('@/api')['bidRecord']>
     readonly categoryApi: UnwrapRef<typeof import('@/api')['category']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -233,6 +238,7 @@ declare module '@vue/runtime-core' {
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
+    readonly participateApi: UnwrapRef<typeof import('@/api')['participate']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>

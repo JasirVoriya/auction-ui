@@ -1,20 +1,7 @@
 <script setup lang="ts">
-import * as utils from '@/plugins/utils';
 const props = defineProps({
   goods: {} as any
 });
-const currentDate = new Date();
-const startTime = utils.parseDateString(props.goods.startTime);
-const endTime = utils.parseDateString(props.goods.endTime);
-const status = ref(1);
-
-const isStart = startTime ? currentDate.getTime() >= startTime.getTime() : false;
-const isEnd = endTime ? currentDate.getTime() >= endTime.getTime() : false;
-if (isStart && !isEnd) {
-  status.value = 2;
-} else if (isEnd) {
-  status.value = 3;
-}
 const detailUrl = ref('');
 if (props.goods.goodsType == '司法资产') {
   detailUrl.value = `/judicial/${props.goods.id}`;
@@ -40,15 +27,7 @@ if (props.goods.goodsType == '司法资产') {
           </p>
         </div>
         <div class="w-full relative h-7">
-          <span v-if="status == 1" class="absolute bg-green-600 text-white py-1 px-2 text-sm rounded-l-lg right-0">
-            即将开始
-          </span>
-          <span v-if="status == 2" class="absolute bg-rose-600 text-white py-1 px-2 text-sm rounded-l-lg right-0">
-            正在进行
-          </span>
-          <span v-if="status == 3" class="absolute bg-yellow-600 text-white py-1 px-2 text-sm rounded-l-lg right-0">
-            已结束
-          </span>
+          <goods-status :status="goods.status" card />
         </div>
       </div>
     </div>

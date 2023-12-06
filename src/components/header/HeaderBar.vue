@@ -29,7 +29,6 @@ const logout = () => {
       </template>
     </template>
     <template #right>
-      <top-bar-item>购物车</top-bar-item>
     </template>
   </top-bar>
   <tab-menu>
@@ -48,7 +47,6 @@ const logout = () => {
         hover-src="/src/assets/svg/question-hover.svg" />
     </template>
     <template #right>
-      <tab-menu-item title="我的" />
     </template>
   </tab-menu>
 </template>

@@ -9,7 +9,7 @@ const cutImage = (url: String) => {
 const updateGender = (sex: Number) => {
   ProfileApi.updateUserSex({ sex: sex }).then(() => ElMessage.success('修改成功'));
 }
-const tabIndex = ref('0');
+const tabIndex = ref('1');
 const avatarCropperRef = ref();
 </script>
 <template>
@@ -67,34 +67,29 @@ const avatarCropperRef = ref();
   </div>
   <div>
     <el-tabs v-model="tabIndex" tab-position="left">
-      <el-tab-pane label="全部拍品" name="0">
-        <div class="px-10">
-          <order-list />
-        </div>
-      </el-tab-pane>
       <el-tab-pane label="待交保" name="1">
         <div class="px-10">
-          <order-list />
+          <order-list :getGidGoodsRecordList="participateApi.getUserUnpaidBidGoods" />
         </div>
       </el-tab-pane>
       <el-tab-pane label="待开拍" name="2">
         <div class="px-10">
-          <order-list />
+          <order-list :getGidGoodsRecordList="participateApi.getUserWaitBidGoods" />
         </div>
       </el-tab-pane>
       <el-tab-pane label="竞价中" name="3">
         <div class="px-10">
-          <order-list />
+          <order-list :getGidGoodsRecordList="participateApi.getUserBiddingBidGoods" />
         </div>
       </el-tab-pane>
       <el-tab-pane label="已结束" name="4">
         <div class="px-10">
-          <order-list />
+          <order-list :getGidGoodsRecordList="participateApi.getUserEndBidGoods" />
         </div>
       </el-tab-pane>
       <el-tab-pane label="已拍下" name="5">
         <div class="px-10">
-          <order-list />
+          <order-list :getGidGoodsRecordList="participateApi.getUserSuccessBidGoods" />
         </div>
       </el-tab-pane>
     </el-tabs>

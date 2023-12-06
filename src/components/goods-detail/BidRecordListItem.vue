@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { BidRecord } from '@/types';
 
-defineProps<{
-  record: BidRecord
-}>();
+defineProps<{record: any}>();
 </script>
 <template>
   <div class="group grid grid-cols-4 py-1">
@@ -13,13 +10,13 @@ defineProps<{
               group-first:before:content-['领先'] group-first:before:text-white group-first:bg-red-700 group-first:border-0" />
     </div>
     <div>
-      <span class=" group-first:text-red-700 group-first:font-bold">{{ record.bidder }}</span>
+      <span class=" group-first:text-red-700 group-first:font-bold">{{ record.bidderId }}</span>
     </div>
     <div>
       <nut-price :price='record.price' size="small" :decimal-digits="0"></nut-price>
     </div>
     <div>
-      <span class=" group-first:text-red-700 group-first:font-bold">{{ record.time }}</span>
+      <span class=" group-first:text-red-700 group-first:font-bold">{{ record.createTime }}</span>
     </div>
   </div>
 </template>

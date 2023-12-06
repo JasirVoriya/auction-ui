@@ -26,7 +26,15 @@ export default defineConfig({
           '@/store': ['useStore', 'useUserStore'],
           '@vueuse/head': ['useHead'],
           '@/plugins/request': ['request', 'Method'],
-          '@/api': [['common', 'CommonApi'], ['passport', 'PassportApi'], ['profile', 'ProfileApi'], ['category', 'categoryApi'], ['goods', 'goodsApi']],
+          '@/api': [
+            ['common', 'CommonApi'],
+            ['passport', 'PassportApi'], 
+            ['profile', 'ProfileApi'], 
+            ['category', 'categoryApi'], 
+            ['goods', 'goodsApi'],
+            ['participate', 'participateApi'],
+            ['bidRecord', 'bidRecordApi'],
+          ],
           //
         },
       ],

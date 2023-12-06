@@ -21,9 +21,11 @@ const helpList = reactive([
     link: '/help-center',
     name: '假一赔三'
   }
-
 ]);
-
+const bidGoodsRecord=ref({} as any)
+participateApi.getUserAllBidGoodsNum().then(res=>{
+  bidGoodsRecord.value=res
+})
 </script>
 <template>
   <div class="w-full flex flex-col">
@@ -33,12 +35,12 @@ const helpList = reactive([
           <img v-if="useUserStore().userInfo.avatar" :src="useUserStore().userInfo.avatar" />
           <My v-else />
         </nut-avatar>
-        <span class="text-rose-600 text-xs font-bold self-center p-1 truncate">
+        <span class="text-rose-600 text-xs font-bold self-center p-1 truncate w-24">
           <span>{{ useUserStore().userInfo.username }}</span>
         </span>
       </div>
       <div class="flex items-end">
-        <a href="/user-center" class="text-xs font-bold self-center">
+        <a href="/user-center" class="text-xs font-bold self-center w-16">
           <span>我的拍卖</span>
           <span class=" text-gray-300">&nbsp;&gt;</span>
         </a>
@@ -46,23 +48,33 @@ const helpList = reactive([
     </div>
     <div class="flex bg-gray-100 rounded-xl border-[1px] px-1 py-3 gap-2 justify-center">
       <div class="flex flex-col justify-center items-center">
-        <span class=" text-rose-600 font-bold text-xs">0</span>
+        <span class=" text-rose-600 font-bold text-xs">
+          {{ bidGoodsRecord.unpaidNum }}
+        </span>
         <span class=" text-gray-500 text-[10px]">待交保</span>
       </div>
       <div class="flex flex-col justify-center items-center">
-        <span class=" text-rose-600 font-bold text-xs">0</span>
+        <span class=" text-rose-600 font-bold text-xs">
+          {{ bidGoodsRecord.waitNum }}
+        </span>
         <span class=" text-gray-500 text-[10px]">待开拍</span>
       </div>
       <div class="flex flex-col justify-center items-center">
-        <span class=" text-rose-600 font-bold text-xs">0</span>
+        <span class=" text-rose-600 font-bold text-xs">
+          {{ bidGoodsRecord.biddingNum }}
+        </span>
         <span class=" text-gray-500 text-[10px]">竞价中</span>
       </div>
       <div class="flex flex-col justify-center items-center">
-        <span class=" text-rose-600 font-bold text-xs">0</span>
+        <span class=" text-rose-600 font-bold text-xs">
+          {{ bidGoodsRecord.endNum }}
+        </span>
         <span class=" text-gray-500 text-[10px]">已结束</span>
       </div>
       <div class="flex flex-col justify-center items-center">
-        <span class=" text-rose-600 font-bold text-xs">0</span>
+        <span class=" text-rose-600 font-bold text-xs">
+          {{ bidGoodsRecord.successNum }}
+        </span>
         <span class=" text-gray-500 text-[10px]">已拍下</span>
       </div>
     </div>

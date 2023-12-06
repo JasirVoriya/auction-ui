@@ -17,6 +17,8 @@
     "@nutui/icons-vue-taro": "^0.0.9",
     "@nutui/nutui": "^4.2.1",
     "@vueuse/head": "2.0.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.6.2",
     "element-plus": "^2.4.2",
     "pinia": "2.1.7",

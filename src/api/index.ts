@@ -3,4 +3,6 @@ import * as passport from './passport';
 import * as profile from './profile';
 import * as category from './category';
 import * as goods from './goods';
-export { common, passport, profile ,category,goods};
+import * as  participate from './participate';
+import * as bidRecord from './bidRecord';
+export { common, passport, profile ,category,goods,participate,bidRecord};
