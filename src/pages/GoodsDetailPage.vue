@@ -50,9 +50,8 @@ onBeforeUnmount(() => {
   <container-box>
     <div class="py-4">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/rare-goods' }">珍贵好物</el-breadcrumb-item>
-        <el-breadcrumb-item><a href="/">个性化妆</a></el-breadcrumb-item>
-        <el-breadcrumb-item>{{ goodsId }}</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: goods.goodsType==='珍贵好物'?'/rare-goods':'/judicial' }">{{ goods.goodsType }}</el-breadcrumb-item>
+        <el-breadcrumb-item v-for="name in goods.categoryNames">{{ name }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="grid grid-cols-5 gap-0 items-start">
@@ -91,7 +90,7 @@ onBeforeUnmount(() => {
                 <!-- 未报名 -->
                 <pay-deposit-pane v-else-if="participateInfo === null" :goods="goods" title="报名交保证金" />
                 <!-- 已报名，未缴费 -->
-                <pay-deposit-pane v-else-if="participateInfo.pay === false" :goods="goods" title="已报名，立即缴费" />
+                <pay-deposit-pane v-else-if="participateInfo.deposit === false" :goods="goods" title="已报名，立即缴费" />
                 <!-- 已报名，已缴费，待开拍 -->
                 <disabled-pane v-else-if="goods.status === 1" title="参拍成功，请等待开拍" />
                 <!-- 已报名，已缴费，已开拍 -->
@@ -159,10 +158,10 @@ onBeforeUnmount(() => {
               <bid-record-list :goods-id="goodsId" />
             </nut-tab-pane>
             <nut-tab-pane title="服务保障" pane-key="2">
-              服务保障
+              <service-guarantee/>
             </nut-tab-pane>
             <nut-tab-pane title="保证金须知" pane-key="3">
-              保证金须知
+              <margin-requirements/>
             </nut-tab-pane>
           </nut-tabs>
         </div>

@@ -12,14 +12,37 @@ if (props.record.goodsType == '司法资产') {
 } else if (props.record.goodsType == '民间珍品') {
   detailUrl.value = `/rare-goods/${props.record.goodsId}`;
 }
+const show = ref(false)
+const showPay = () => {
+  show.value = true
+}
+const pay = () => {
+  payApi.pay(props.record.goodsId).then(() => {
+    show.value = false
+    ElMessage.success('支付成功')
+  })
+}
 </script>
 <template>
+  <nut-dialog teleport="#app" v-model:visible="show" @ok="pay">
+    <template #header>
+      <span class="text-rose-600 font-bold">支付
+      </span>
+    </template>
+    <template #default>
+      <span>
+        <span>恭喜您成功拿下该拍品，请立即支付</span>
+        <span class="text-xl text-rose-600">{{ record.goodsLatestPrice }}元</span>
+      </span>
+    </template>
+  </nut-dialog>
   <div class="flex flex-col border-gray-400 border-[1px]">
     <div class="flex justify-between px-10 py-5">
       <div>
         <div class=" text-gray-300 text-2xl font-light">
           <span>
             {{ statusTitle[record.status] }}
+            <span v-if="record.status===5">{{ record.pay?'（已付款）':'（未付款）' }}</span>
           </span>
         </div>
         <div class="text-gray-500 text-sm font-light flex divide-x pt-2">
@@ -51,6 +74,7 @@ if (props.record.goodsType == '司法资产') {
       </div>
       <div class="flex flex-col text-gray-500 font-light text-xs gap-2 w-64 items-center justify-center">
         <router-link :to="detailUrl" class=" border-[1px] border-gray-500 py-1 px-6">商品详情</router-link>
+        <button @click.prevent="showPay" v-if="record.status===5&&!record.pay" class=" border-[1px] border-gray-500 py-1 px-6">立即支付</button>
       </div>
     </div>
   </div>

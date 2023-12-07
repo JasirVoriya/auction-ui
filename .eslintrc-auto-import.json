@@ -103,6 +103,7 @@
     "categoryApi": true,
     "goodsApi": true,
     "participateApi": true,
-    "bidRecordApi": true
+    "bidRecordApi": true,
+    "payApi": true
   }
 }

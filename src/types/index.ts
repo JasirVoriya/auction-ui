@@ -1,7 +1,7 @@
 export interface Category {
   name: string;
   link: string;
-  children?: Category[];
+  children: Category[];
 }
 export interface BidRecord{
   bidder: string;

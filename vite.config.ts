@@ -34,6 +34,7 @@ export default defineConfig({
             ['goods', 'goodsApi'],
             ['participate', 'participateApi'],
             ['bidRecord', 'bidRecordApi'],
+            ['pay', 'payApi'],
           ],
           //
         },

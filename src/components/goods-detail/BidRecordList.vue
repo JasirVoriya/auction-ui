@@ -28,10 +28,6 @@ const handleCurrentChange = (val: number) => {
 </script>
 <template>
   <div>
-    <span class=" text-sm">
-      <span>出价记录</span>
-      <span class=" text-xs text-gray-500">（{{ pageData.total }}）</span>
-    </span>
     <div class="text-xs text-gray-500 flex flex-col gap-1">
       <div class="grid grid-cols-4 bg-gray-200 p-3">
         <span>状态</span>

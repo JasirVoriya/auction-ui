@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomePage from '@/pages/HomePage.vue'
-import AssetTradingPage from '@/pages/AssetTradingPage.vue'
 import JudicialPage from '@/pages/JudicialPage.vue'
 import RareGoodsPage from '@/pages/RareGoodsPage.vue'
 import TransactionServicesPage from '@/pages/TransactionServicesPage.vue'
@@ -41,19 +40,6 @@ const routes = [
         path: ':goodsId',
         component: GoodsDetailPage,
         props: true,
-      }
-    ]
-  },
-  {
-    path: '/asset-trading',
-    component: AssetTradingPage,
-    meta: {
-      title: '资产交易',
-    },
-    children: [
-      {
-        path: '',
-        component: SwiperAndGoodsList,
       }
     ]
   },

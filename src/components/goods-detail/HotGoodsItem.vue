@@ -1,7 +1,9 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   goods: {} as any
 });
+const bidRecorTotal = ref(0)
+bidRecordApi.getBidRecord(props.goods.id, 1, 1).then(res => bidRecorTotal.value = res.total)
 </script>
 <template>
   <div class="bg-white my-4">
@@ -20,7 +22,7 @@ defineProps({
       </div>
       <div>
         <span>出价</span>
-        <span class=" text-rose-600 font-bold px-1">{{ 12121 }}</span>
+        <span class=" text-rose-600 font-bold px-1">{{ bidRecorTotal }}</span>
         <span>次</span>
       </div>
     </div>
